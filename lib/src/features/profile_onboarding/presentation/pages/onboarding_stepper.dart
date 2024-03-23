@@ -15,6 +15,7 @@ import 'package:myhealthcop/src/features/profile_onboarding/presentation/widgets
 import 'package:wheel_picker/wheel_picker.dart';
 
 enum Sex { male, female }
+enum ActivityLevel { sedentary, lowActive, active, veryActive}
 
 enum BloodTypes {
   A_POSITIVE,
