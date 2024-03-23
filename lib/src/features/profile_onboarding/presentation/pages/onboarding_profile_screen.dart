@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:myhealthcop/src/features/profile_onboarding/presentation/widgets/onboarding_step_7.dart';
+import 'package:myhealthcop/src/features/profile_onboarding/presentation/widgets/onboarding_step_skipped.dart';
+import 'package:myhealthcop/src/features/profile_onboarding/presentation/widgets/onboarding_step_filled.dart';
 import '../../../../core/widgets/custom_raised_button.dart';
 import '../bloc/onboarding_cubit/onboarding_cubit.dart';
 
@@ -21,21 +24,9 @@ class _OnboardingProfileScreenState extends State<OnboardingProfileScreen> {
     const OnboardingStep3(),
     const OnboardingStep4(),
     const OnboardingStep5(),
-    Container(
-      child: const Center(
-        child: Text('Page 6'),
-      ),
-    ),
-    Container(
-      child: const Center(
-        child: Text('Page 7'),
-      ),
-    ),
-    Container(
-      child: const Center(
-        child: Text('Page 8'),
-      ),
-    ),
+    const OnboardingStep7(),
+    const OnboardingStepFilled(),
+    const OnboardingStepSkipped(),
   ];
 
   final pageController = PageController();
