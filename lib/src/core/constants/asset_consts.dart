@@ -30,4 +30,14 @@ class AssetConsts {
   static const String abNegativeIcon = 'assets/svg/ab_neg.svg';
   static const String oPositiveIcon = 'assets/svg/o_pos.svg';
   static const String oNegativeIcon = 'assets/svg/o_neg.svg';
+  static const String draftLineIcon = 'assets/svg/draft_line.svg';
+  static const String bmiIcon = 'assets/svg/bmi_icon.svg';
+  static const String bmiStarIcon = 'assets/svg/bmi_star.svg';
+  static const String bmiFrownIcon = 'assets/svg/bmi_frown_icon.svg';
+  static const String bmiThunderIcon = 'assets/svg/bmi_thunder_icon.svg';
+  static const String togetherIllustration = 'assets/images/together_illustration.png';
+  static const String veryActiveIcon = 'assets/images/very_active_icon.png';
+  static const String activeIcon = 'assets/images/active_icon.png';
+  static const String lowActive = 'assets/images/low_active_icon.png';
+  static const String sedentaryIcon = 'assets/images/sedentary_icon.png';
 }
