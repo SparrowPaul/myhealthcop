@@ -13,9 +13,10 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
       return emit(const RegistrationLoading());
     });
     on<OnRegistrationCredSubmitted>((event, emit) async {
+      print('REG Bloc');
       final failureOrMessage = await _registerUser({'email': event.email, 'password': event.password, 'userType': event.userType});
       final result = failureOrMessage.fold(
-        (failure) => RegistrationFaiure(failure.message),
+        (failure) => RegistrationFailed(failure.message),
         (user) => Registered(user),
       );
       return emit(result);

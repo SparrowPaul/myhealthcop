@@ -28,10 +28,10 @@ class Registered extends RegistrationState {
   bool? get stringify => true;
 }
 
-class RegistrationFaiure extends RegistrationState {
+class RegistrationFailed extends RegistrationState {
   final String errorMessage;
 
-  const RegistrationFaiure(this.errorMessage);
+  const RegistrationFailed(this.errorMessage);
 
   @override
   List<Object> get props => [errorMessage];
