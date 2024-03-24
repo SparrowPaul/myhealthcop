@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:myhealthcop/src/features/authentication/domain/entities/user.dart';
 
 part 'profile_onboarding_event.dart';
 part 'profile_onboarding_state.dart';
