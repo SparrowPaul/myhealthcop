@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myhealthcop/src/core/widgets/custom_animated_height.dart';
 import '../../../../core/constants/size_consts.dart';
 import '../../../../core/widgets/custom_animated_weight.dart';
 
@@ -40,7 +41,7 @@ class _OnboardingStep4State extends State<OnboardingStep4> {
               style: theme.textTheme.headlineSmall!
                   .copyWith(fontWeight: FontWeight.bold)),
         ),
-        CustomAnimatedWeight(
+        CustomAnimatedHeight(
           min: 148,
           max: 204,
           onChange: (value) {

@@ -18,7 +18,7 @@ class OnboardingStep3 extends StatelessWidget {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(bottom: Sizes.dimen_16),
-          child: Text('Tell Us Your Date of Birth',
+          child: Text('What is Your Blood Type?',
               style: theme.textTheme.headlineSmall!
                   .copyWith(fontWeight: FontWeight.bold)),
         ),
@@ -26,7 +26,7 @@ class OnboardingStep3 extends StatelessWidget {
         Row(
           children: [
             Checkbox(
-              value: true,
+              value: false,
               onChanged: (value) {},
             ),
             const Text('I do not know my blood type')
@@ -53,6 +53,12 @@ class BuildBloodTypeWidget extends StatefulWidget {
 }
 
 class _BuildBloodTypeWidgetState extends State<BuildBloodTypeWidget> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   String? bloodTypeOption;
   @override
   Widget build(BuildContext context) {
