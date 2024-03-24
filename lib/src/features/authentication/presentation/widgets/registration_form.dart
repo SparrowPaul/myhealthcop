@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:myhealthcop/src/core/constants/asset_consts.dart';
 import 'package:myhealthcop/src/core/constants/color_consts.dart';
+import 'package:myhealthcop/src/core/constants/route_consts.dart';
 import 'package:myhealthcop/src/core/constants/size_consts.dart';
 import 'package:myhealthcop/src/core/widgets/logo_widget.dart';
 import 'package:myhealthcop/src/core/widgets/text_subtitle_widget.dart';
 import 'package:myhealthcop/src/core/widgets/widgets.dart';
 import 'package:password_field_validator/password_field_validator.dart';
 
+import '../blocs/registration_bloc/registration_bloc.dart';
+
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({super.key});
 
   @override
   State<StatefulWidget> createState() => _RegistrationFormState();
-  
 }
 
 class _RegistrationFormState extends State<RegistrationForm> {
@@ -29,10 +32,18 @@ class _RegistrationFormState extends State<RegistrationForm> {
     _passwordVisible = false;
     formKey = GlobalKey<FormState>();
   }
-  
+
   @override
   Widget build(BuildContext context) {
-    return Form(
+    return BlocListener<RegistrationBloc, RegistrationState>(
+      listener: (context, state) {
+        if (state is RegistrationFailed) {
+          showSnackBar(state.errorMessage, Colors.red);
+        } else if (state is Registered) {
+          Navigator.of(context).pushNamed(RouteConsts.onBoardingRoute);
+        }
+      },
+      child: Form(
         key: formKey,
         child: Stack(
           alignment: Alignment.center,
@@ -226,36 +237,62 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         ),
                       ],
                     ),
-                    CustomRaisedButton(
-                        text: const Text(
-                        'CREATE ACCOUNT',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                      ),
-                        width: double.infinity,
-                        color: isUserAgreedToTermsChecked == true
-                            ? ColorConsts.cornFlowerBlue
-                            : Colors.grey,
-                        onPressed: () {
-                          if (isUserAgreedToTermsChecked == true){
-
-                            if (formKey.currentState!.validate()) {
-
-                          }
-
-                          }
-                          
-                        }),
+                    BlocBuilder<RegistrationBloc, RegistrationState>(
+                      builder: (context, state) {
+                        if (state is RegistrationLoading) {
+                          return CustomRaisedButton(
+                            text: const CircularProgressIndicator(
+                                color: Colors.white),
+                            onPressed: () {},
+                          );
+                        } else {
+                          return CustomRaisedButton(
+                              text: const Text(
+                                'CREATE ACCOUNT',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              width: double.infinity,
+                              color: isUserAgreedToTermsChecked == true
+                                  ? ColorConsts.cornFlowerBlue
+                                  : Colors.grey,
+                              onPressed: () {
+                                if (isUserAgreedToTermsChecked == true) {
+                                  if (formKey.currentState!.validate()) {
+                                    context.read<RegistrationBloc>().add(
+                                          OnRegistrationCredSubmitted(
+                                            email:
+                                                emailTextController.text.trim(),
+                                            password: passwordTextController
+                                                .text
+                                                .trim(),
+                                            userType: 'CUSTOMER',
+                                          ),
+                                        );
+                                  }
+                                }
+                              });
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),
             )
           ],
         ),
-      );
+      ),
+    );
   }
-  
+
+  showSnackBar(String message, Color? backgroundColor) {
+    final snackBar = SnackBar(
+      content: Text(message),
+      backgroundColor: backgroundColor,
+    );
+    return ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
 }
