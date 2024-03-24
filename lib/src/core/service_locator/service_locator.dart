@@ -8,6 +8,7 @@ import 'package:myhealthcop/src/features/authentication/domain/usecases/login_us
 import 'package:myhealthcop/src/features/authentication/domain/usecases/register_user.dart';
 import 'package:myhealthcop/src/features/authentication/domain/usecases/reset_user_password.dart';
 import 'package:myhealthcop/src/features/authentication/presentation/blocs/auth_bloc/auth_bloc.dart';
+import 'package:myhealthcop/src/features/authentication/presentation/blocs/forgot_password_bloc/forgot_password_bloc.dart';
 import 'package:myhealthcop/src/features/authentication/presentation/blocs/registration_bloc/registration_bloc.dart';
 
 import '../network/network_info.dart';
@@ -20,6 +21,7 @@ Future<void> setUpLocator() async {
 
   locator.registerFactory<AuthBloc>(() => AuthBloc(locator()));
   locator.registerFactory<RegistrationBloc>(() => RegistrationBloc(locator()));
+  locator.registerFactory<ForgotPasswordBloc>(() => ForgotPasswordBloc(locator()));
 
   // Repositories
 
