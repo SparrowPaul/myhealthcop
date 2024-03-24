@@ -26,6 +26,9 @@ class ForgotPasswordSuccess extends ForgotPasswordState {
 
   @override
   bool? get stringify => true;
+
+  @override
+  List<Object> get props => [message];
 }
 
 class ForgotPasswordFaiure extends ForgotPasswordState {
