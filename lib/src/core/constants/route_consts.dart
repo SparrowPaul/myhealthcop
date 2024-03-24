@@ -11,4 +11,5 @@ class RouteConsts {
   static const String resetPasswordSuccessRoute = '/reset_password_success';
   static const String welcomeRoute = '/welcome_route';
   static const String onBoardingRoute = '/onboarding_route';
+  static const String changepasswordRoute = '/change_password_route';
 }
