@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 
 class User extends Equatable {
-  final String uid;
-  final String email;
-  final String firstName;
-  final String lastName;
-  final String userType;
+  final String? uid;
+  final String? email;
+  final String? firstName;
+  final String? lastName;
+  final String? userType;
   final String? country;
   final String? phoneNumber;
   final String? gender;
@@ -26,7 +26,7 @@ class User extends Equatable {
   });
 
   String get getFullName => '$firstName ' '$lastName'; 
-  String get getFullNameInitials => getFullName.trim().isNotEmpty ? '${firstName[0]}' '${lastName[0]}' : ' '; 
+  String get getFullNameInitials => getFullName.trim().isNotEmpty ? '${firstName![0]}' '${lastName![0]}' : ' '; 
 
 
   @override
