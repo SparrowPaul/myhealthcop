@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myhealthcop/src/features/authentication/presentation/pages/change_password.dart';
 import '../constants/route_consts.dart';
 import '../../features/authentication/presentation/pages/create_account.dart';
 import '../../features/authentication/presentation/pages/forgot_password.dart';
@@ -18,13 +19,11 @@ Route<dynamic>? generateRoute(RouteSettings settings) {
       return _getPageRoute(const ResetPasswordScreen());
     case RouteConsts.createAccountRoute:
       return _getPageRoute(const CreateAccount());
-        case RouteConsts.welcomeRoute:
-      return _getPageRoute(const WelcomePage());
+    case RouteConsts.changepasswordRoute:
+      return _getPageRoute(const ChangePasswordScreen());
 
     default:
       return null;
-
-      
   }
 }
 
