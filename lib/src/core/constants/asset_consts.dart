@@ -39,5 +39,13 @@ class AssetConsts {
   static const String veryActiveIcon = 'assets/images/very_active_icon.png';
   static const String activeIcon = 'assets/images/active_icon.png';
   static const String lowActive = 'assets/images/low_active_icon.png';
+  static const String reduceStressIcon = 'assets/images/reduce_stress.png';
   static const String sedentaryIcon = 'assets/images/sedentary_icon.png';
+  static const String beMoreActiveIcon = 'assets/images/be_more_active.png';
+  static const String eatHealthyIcon = 'assets/images/eat_healthy.png';
+  static const String loseWeightIcon = 'assets/images/lose_weight.png';
+  static const String keepFitIcon = 'assets/images/keep_fit.png';
+  static const String gainWeightIcon = 'assets/images/gain_weight.png';
+  static const String defineYourGoalIcon = 'assets/images/define_your_goal.png';
+  static const String changePasswordIcon = 'assets/images/change_password_icon.png';
 }
