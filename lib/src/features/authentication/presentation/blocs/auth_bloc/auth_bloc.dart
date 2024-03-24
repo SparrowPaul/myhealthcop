@@ -15,7 +15,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<OnLoginCredSubmitted>(((event, emit) async {
       final failureOrMessage = await _loginUser({'email': event.email, 'password': event.password, 'userType': event.userType});
       final result = failureOrMessage.fold(
-        (failure) => AuthFaiure(failure.message),
+        (failure) => AuthFailed(failure.message),
         (user) => Authed(user),
       );
       return emit(result);

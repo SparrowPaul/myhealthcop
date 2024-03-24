@@ -27,10 +27,10 @@ class Authed extends AuthState {
   bool? get stringify => true;
 }
 
-class AuthFaiure extends AuthState {
+class AuthFailed extends AuthState {
   final String errorMessage;
 
-  const AuthFaiure(this.errorMessage);
+  const AuthFailed(this.errorMessage);
 
   @override
   List<Object> get props => [errorMessage];
