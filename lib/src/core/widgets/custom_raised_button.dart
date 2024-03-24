@@ -17,7 +17,7 @@ class CustomRaisedButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final BorderRadius? borderRadius;
   final Gradient? gradient;
-  final Text text;
+  final Widget text;
   final Color? color;
 
   @override
