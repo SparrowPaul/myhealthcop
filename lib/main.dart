@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MHEALTHCOP APP',
-      initialRoute: RouteConsts.loginRoute,
+      initialRoute: RouteConsts.splashRoute,
       onGenerateRoute: generateRoute,
       
       routes: {

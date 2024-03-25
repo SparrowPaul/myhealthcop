@@ -39,7 +39,7 @@ class _LoginFormState extends State<LoginForm> {
         if (state is AuthFailed) {
           showSnackBar(state.errorMessage, Colors.red);
         } else if (state is Authed) {
-          Navigator.of(context).pushNamed(RouteConsts.onBoardingRoute);
+          Navigator.of(context).pushNamed(RouteConsts.welcomeRoute);
         }
       },
       child: Form(
